@@ -12,103 +12,254 @@
          /* body * {
             border: 1px solid red;
         } */
+
+        /* Animasi Smooth ke Atas */
+        .animate-up {
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+
      </style>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
  </head>
 
  <body>
-     <section class="wrap w-full h-16  px-6 py-2 border-b-2">
-         <header class="flex flex-row justify-between">
-             <img src="src/img/awakkoss.png" alt="awakkos" class="w-48">
-             <nav class="flex items-center gap-8 justify-center font-semibold">
-                 <a class=" " href="#">HOME</a>
-                 <a href=" ">UNIVERSITAS</a>
-                 <a href="login.php">KOS</a>
-             </nav>
-         </header>
-     </section>
+    <section class="w-full">
+        <nav class="w-full  flex justify-between ">
+            <img src="src/img/awakkoss.png" alt="awakkos" class="w-48">
+                <ul class="flex flex-row justify-items-start gap-6 items-center">
+                                    <li href="javascript:void(0)" class="relative group">
+                                        <a href="/" class="font-semibold text-base duration-500">
+                                            HOME
+                                        </a>
+                                        <div class="absolute left-0 w-0 duration-500 group-hover:w-full h-1 bg-orange-500">
+                                        </div>
+                                    </li>
+                                    <li href="javascript:void(0)" class="relative group">
+                                        <a href="/" class="font-semibold  text-base duration-500">
+                                            CARI KOS
+                                        </a>
+                                        <div class="absolute   left-0 w-0 duration-500 group-hover:w-full h-1 bg-orange-500">
+                                        </div>
+                                    </li>                    
+                                    <li href="javascript:void(0)" class="relative group">
+                                        <a href="/" class="font-semibold  text-base duration-500">
+                                            DAFTAR KAMPUS
+                                        </a>
+                                        <div class="absolute   left-0 w-0 duration-500 group-hover:w-full h-1 bg-orange-500">
+                                        </div>
+                                    </li>                    
+                                    <li href="javascript:void(0)" class="relative group">
+                                        <a href="/" class="font-semibold  text-base duration-500">
+                                            KONTAK
+                                        </a>
+                                        <div class="absolute   left-0 w-0 duration-500 group-hover:w-full h-1 bg-orange-500">
+                                        </div>
+                                    </li>                    
+                </ul>
+            <div>
+                <a href="login.php">
+                <button class="py-2 px-4 m-2 rounded-full border-2 font-semibold border-blue-300 bg-orange-500 hover:bg-orange-600 ">Masuk</button>
+
+                </a>
+            </div>
+        </nav>
+    </section>
 
 
-     <!-- Hero Section -->
-     <section class="relative hero w-full h-full">
-         <!-- Hero Slider dengan tinggi setengah layar -->
-         <div class="hero-slider overflow-hidden relative w-full  h-96">
-             <div class="flex transition-transform duration-500 ease-in-out" id="slider">
-                 <div class="hero-slide w-full flex-shrink-0">
-                     <img src="src/img/kamar1.png" alt="Kamar 1" class="w-full   object-center">
+  
+     <section class="relative hero w-full h-screen">
+         
+         <div  class="overflow-hidden relative w-full px-8 rounded-xl h-96">
+             <div class="flex transition-transform duration-500 ease-in-out rounded-xl"  >
+                 <div class="hero-slide w-full flex-shrink-0 rounded-xl">
+                     <img src="src/img/kos3.jpg" alt="Kamar 1" class="w-full h-96 object-cover rounded-xl">
                  </div>
-                 <div class="hero-slide w-full flex-shrink-0">
-                     <img src="src/img/islamic.png" alt="Kamar 2" class="w-full   object-cover">
-                 </div>
-                 <div class="hero-slide w-full flex-shrink-0">
-                     <img src="src/img/mahasiswa.png" alt="Kamar 3" class="w-full l object-cover">
-                 </div>
+                  
              </div>
          </div>
 
-         <!-- Form Pencarian Lokasi atau Nama Kos dengan tinggi setengah layar -->
-         <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full   text-center  p-4">
-             <input type="text" placeholder="Ketik Lokasi atau Nama Kos" class="px-4 py-4 w-2/3 md:w-1/2 lg:w-1/3 rounded-lg shadow-md  " />
-             <button class="bg-orange-500 text-white px-6 py-4 rounded-lg shadow-md hover:bg-orange-700 transition-colors">Cari Kos</button>
-         </div>
+        <div class="absolute bottom-60 left-12 bg-black/20  p-4 rounded-lg shadow-lg max-w-md wow animate__animated animate__fadeInLeft">
+            <p class="text-2xl md:text-3xl font-bold mb-4  leading-relaxed text-white ">
+                Temukan kos terbaik <br>dengan harga terjangkau disini !!
+            </p>
+            <p class="text-sm md:text-base font-medium leading-relaxed text-white">
+                Tidak perlu repot-repot cari lagi, <br>
+                kos yang ada sudah kami cek langsung ke lokasi.
+            </p>
+        </div>
 
-         <!-- Navigasi Slide -->
-         <button class="prev absolute top-1/2 left-4 transform -translate-y-1/2 text-lg  bg-orange-800 px-2 py-2 rounded-full shadow-lg hover:bg-gray-600 transition-colors">
-             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
-                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                 <g id="SVGRepo_iconCarrier">
-                     <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3956 19.7691C19.0541 20.2687 20 19.799 20 18.9724L20 5.02764C20 4.20106 19.0541 3.73137 18.3956 4.23095L9.20476 11.2033C8.67727 11.6035 8.67727 12.3965 9.20476 12.7967L18.3956 19.7691ZM22 18.9724C22 21.4521 19.1624 22.8612 17.1868 21.3625L7.99598 14.3901C6.41353 13.1896 6.41353 10.8104 7.99599 9.60994L17.1868 2.63757C19.1624 1.13885 22 2.5479 22 5.02764L22 18.9724Z" fill="#ffffff"></path>
-                     <path d="M2 3C2 2.44772 2.44772 2 3 2C3.55228 2 4 2.44772 4 3V21C4 21.5523 3.55228 22 3 22C2.44772 22 2 21.5523 2 21V3Z" fill="#ffffff"></path>
-                 </g>
-             </svg>
-         </button>
-         <button class="next absolute top-1/2 right-4 transform -translate-y-1/2  bg-orange-800 px-2 py-2 rounded-full shadow-lg hover:bg-gray-600 transition-colors">
-             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)" stroke="#ffffff">
-                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                 <g id="SVGRepo_iconCarrier">
-                     <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3956 19.7691C19.0541 20.2687 20 19.799 20 18.9724L20 5.02764C20 4.20106 19.0541 3.73137 18.3956 4.23095L9.20476 11.2033C8.67727 11.6035 8.67727 12.3965 9.20476 12.7967L18.3956 19.7691ZM22 18.9724C22 21.4521 19.1624 22.8612 17.1868 21.3625L7.99598 14.3901C6.41353 13.1896 6.41353 10.8104 7.99599 9.60994L17.1868 2.63757C19.1624 1.13885 22 2.5479 22 5.02764L22 18.9724Z" fill="#ffffff"></path>
-                     <path d="M2 3C2 2.44772 2.44772 2 3 2C3.55228 2 4 2.44772 4 3V21C4 21.5523 3.55228 22 3 22C2.44772 22 2 21.5523 2 21V3Z" fill="#ffffff"></path>
-                 </g>
-             </svg>
-         </button>
+
+
+        <div class="absolute bottom-60 right-16 p-4  rounded-lg  wow animate__animated animate__fadeInRight">
+            <button id="toggleButton" 
+                class="w-60 bg-orange-500 text-white py-2 px-6 rounded-lg shadow-md hover:bg-orange-600 transition duration-300 wow animate__animated animate__fadeInRight">
+                Cari Kos
+            </button>
+        </div>
+        
+
+        <div id="filterBox" 
+            class="hidden absolute bottom-60 right-16 p-4 bg-slate-100 rounded-lg shadow-lg w-80 wow animate__animated">
+
+            <div class="absolute top-0 flex items-center bg-black justify-center w-6 h-6 rounded-full right-0 m-2 hover:cursor-pointer" id="closeButton"> 
+                <p class="text-white hover:cursor-pointer">X</p>
+            </div>
+            <h2 class="text-lg font-semibold text-gray-800">Temukan Kos Terbaik</h2>
+            <p class="text-xs text-gray-600 mb-2">Silakan isi detail berikut untuk memulai pencarian kos.</p>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Lokasi Kampus</label>
+                <select 
+                    class="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                    <option value="unimal">Universitas Malikussaleh</option>
+                    <option value="poltek">Politeknik Negeri Lhokseumawe</option>
+                    <option value="iain">IAIN</option>
+                    <option value="stikes">STIKES</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Harga Maksimum/bulan</label>
+                <select 
+                    class="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                    <option value="500000">500.000</option>
+                    <option value="1000000">1.000.000</option>
+                    <option value="1500000">1.500.000</option>
+                    <option value="2000000">2.000.000</option>
+                </select>
+            </div>
+
+            <div class="mb-4 flex space-x-2">
+                <div class="flex items-center">
+                    <input type="checkbox" id="wifi" 
+                        class="w-4 h-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded"/>
+                    <label for="wifi" class="ml-2 text-sm text-gray-700">Wi-Fi</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="kamar-mandi" 
+                        class="w-4 h-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded"/>
+                    <label for="kamar-mandi" class="ml-2 text-sm text-gray-700">Kamar Mandi Dalam</label>
+                </div>
+            </div>
+
+            <button 
+                class="w-full bg-orange-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-orange-600 transition duration-300">
+                Cari Kos
+            </button>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const toggleButton = document.getElementById("toggleButton");
+                const filterBox = document.getElementById("filterBox");
+                const closeButton = document.getElementById("closeButton");
+
+                // Event listener untuk tombol "Cari Kos"
+                toggleButton.addEventListener("click", function () {
+                    // Toggle elemen tampil atau sembunyi
+                    if (filterBox.classList.contains("hidden")) {
+                        filterBox.classList.remove("hidden");
+                        filterBox.classList.add("animate__fadeInUp", "animate-up");
+                    } else {
+                        filterBox.classList.add("hidden");
+                        filterBox.classList.remove("animate__fadeInUp", "animate-up");
+                    }
+                });
+
+                // Event listener untuk tombol "X" yang menutup filterBox
+                closeButton.addEventListener("click", function () {
+                    filterBox.classList.add("hidden");
+                    filterBox.classList.remove("animate__fadeInUp", "animate-up");
+                });
+            });
+        </script>
+
+
+
+        <div class="w-full py-2 px-8 grid grid-cols-3 gap-8 ">
+            <div class="bg-gray-200 flex  w-full h-36 rounded-xl shadow-lg border px-4 py-2 gap-8 justify-between col-span-1">
+                <div class="flex flex-col justify-between w-1/2 wow animate__animated animate__fadeInUp "  >
+                    <h2 class="font-bold text-lg">
+                        Kos Sekitar Lhokseumawe
+                    </h2>
+                    <div class="flex flex-row items-center gap-2">
+                        <div class=" w-8 h-8 bg-gray-700 px-2 py-3 rounded-full border flex items-center">
+                            <svg role="img" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg"><title>AdGuard</title><path d="M12 0C8.249 0 3.725.861 0 2.755 0 6.845-.051 17.037 12 24 24.051 17.037 24 6.845 24 2.755 20.275.861 15.751 0 12 0zm-.106 15.429L6.857 9.612c.331-.239 1.75-1.143 2.794.042l2.187 2.588c.009-.001 5.801-5.948 5.815-5.938.246-.22.694-.503 1.204-.101l-6.963 9.226z"/></svg>
+                        </div>
+                        <p class="font-semibold text-base">
+                            Aman & Bersih
+                        </p>
+                    </div>
+                    
+                </div>
+                <div class="wrap flex flex-row justify-end w-1/2 wow animate__animated animate__fadeInUp " data-wow-delay="0.1s">
+                    <div class="rounded-xl w-full flex justify-between h-full bg-white">
+                        <div class="flex flex-col w-1/4 justify-between">
+                            <h2 class="px-3 max-w-8 wrap m-2 bg-black rounded-xl text-white flex justify-center">...</h2>
+                            <h1 class="font-bold text-3xl m-2">
+                    
+                            </h1>
+                        </div>
+                        <div class="rounded-xl w-3/4 h-full flex justify-end bg-gray-300 p-[1px]">
+                            <img class="w-full h-full object-cover rounded-xl " src="src/img/kamar1.png" alt="">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="bg-gray-200 overflow-hidden flex flex-row w-full h-36 rounded-xl shadow-lg border col-span-2">
+                <div class=" w-full flex flex-row gap-6 p-2 ">
+                    <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.2s">
+                        <img class="w-full object-cover rounded-xl " src="src/img/kos2.jpeg" alt="">
+                        <a href="">
+                            <div class="absolute top-0 flex items-center bg-white justify-center w-8 h-8 rounded-full right-0 m-2"> 
+                            <svg fill="#000000" width="70px" height="70px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-f</title><path d="M256,48h0A208.23,208.23,0,0,0,48,256c0,114.68,93.31,208,208,208h0A208.23,208.23,0,0,0,464,256C464,141.31,370.69,48,256,48Zm-8,361V264H104l-1,0,259-114.11Z"></path></g></svg>    
+                        </div>
+                        </a>
+                        <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-0">UNIMAL</p>
+                    </div>
+                    <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.5s">
+                        <img class="w-full object-cover rounded-xl" src="src/img/kos2.jpeg" alt="">
+                        <a href="">
+                            <div class="absolute top-0 flex items-center bg-white justify-center w-8 h-8 rounded-full right-0 m-2"> 
+                            <svg fill="#000000" width="70px" height="70px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-f</title><path d="M256,48h0A208.23,208.23,0,0,0,48,256c0,114.68,93.31,208,208,208h0A208.23,208.23,0,0,0,464,256C464,141.31,370.69,48,256,48Zm-8,361V264H104l-1,0,259-114.11Z"></path></g></svg>    
+                        </div>
+                        </a>
+                        <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-0">POLTEK</p>
+                    </div>
+                    <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.9s">
+                        <img class="w-full object-cover rounded-xl" src="src/img/kos2.jpeg" alt="">
+                        <a href="">
+                            <div class="absolute top-0 flex items-center bg-white justify-center w-8 h-8 rounded-full right-0 m-2"> 
+                            <svg fill="#000000" width="70px" height="70px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-f</title><path d="M256,48h0A208.23,208.23,0,0,0,48,256c0,114.68,93.31,208,208,208h0A208.23,208.23,0,0,0,464,256C464,141.31,370.69,48,256,48Zm-8,361V264H104l-1,0,259-114.11Z"></path></g></svg>    
+                        </div>
+                        </a>
+                        <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-0">IAIN</p>
+                    </div>
+                     
+                </div>
+                
+
+            </div>
+        </div>
      </section>
 
 
-     <script>
-         const slider = document.getElementById('slider');
-         const slides = document.querySelectorAll('.hero-slide');
-         const nextButton = document.querySelector('.next');
-         const prevButton = document.querySelector('.prev');
-
-         let currentSlide = 0;
-         const totalSlides = slides.length;
-
-         // Fungsi untuk pindah ke slide berikutnya
-         function nextSlide() {
-             currentSlide = (currentSlide + 1) % totalSlides;
-             updateSliderPosition();
-         }
-
-         // Fungsi untuk pindah ke slide sebelumnya
-         function prevSlide() {
-             currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-             updateSliderPosition();
-         }
-
-         // Fungsi untuk memperbarui posisi slider
-         function updateSliderPosition() {
-             const slideWidth = slides[0].offsetWidth;
-             slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-         }
-
-         // Mengatur interval untuk pindah slide otomatis setiap 3 detik
-         setInterval(nextSlide, 3000);
-
-         // Menambahkan event listener untuk tombol navigasi
-         nextButton.addEventListener('click', nextSlide);
-         prevButton.addEventListener('click', prevSlide);
-     </script>
+     
 
 
      <section class="w-full">
@@ -191,45 +342,7 @@
 
 
 
-         <script>
-             let currentSlide = 0;
-
-             function showSlide(index) {
-                 const slides = document.querySelectorAll('.hero-slide');
-                 const slider = document.querySelector('.hero-slider');
-
-                 if (index >= slides.length) currentSlide = 0;
-                 else if (index < 0) currentSlide = slides.length - 1;
-                 else currentSlide = index;
-
-                 slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-             }
-
-             document.querySelector('.prev').addEventListener('click', () => {
-                 showSlide(currentSlide - 1);
-             });
-
-             document.querySelector('.next').addEventListener('click', () => {
-                 showSlide(currentSlide + 1);
-             });
-
-             setInterval(() => {
-                 showSlide(currentSlide + 1);
-             }, 3000);
-
-             // Tambahkan event listener untuk scroll
-             window.addEventListener('scroll', () => {
-                 const searchBar = document.querySelector('.search-bar');
-                 const headerHeight = document.querySelector('.header').offsetHeight;
-
-                 // Cek jika posisi scroll lebih besar dari tinggi header
-                 if (window.scrollY > headerHeight) {
-                     searchBar.classList.add('fixed'); // Tambahkan kelas 'fixed' untuk memindahkan search bar
-                 } else {
-                     searchBar.classList.remove('fixed'); // Hapus kelas 'fixed' jika scroll kembali ke atas
-                 }
-             });
-         </script>
+         
      </section>
      <section class="fotouniv">
          <div class="pilihuniv">
@@ -405,6 +518,9 @@
              </div>
          </div>
      </footer>
+     <script>
+        new WOW().init();
+    </script>
  </body>
 
  </html>
