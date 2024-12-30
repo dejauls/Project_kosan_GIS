@@ -1,40 +1,64 @@
 <?php
 include 'koneksi.php';
 
-$id = $_GET['id'];
-$sql = "SELECT * FROM unimal WHERE id=$id";
-$result = $conn->query($sql);
+$id = intval($_GET['id']); // Sanitasi ID
+$sql = "SELECT * FROM unimal WHERE id=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $universitas = $_POST['universitas'];
-    $nama_kos = $_POST['nama_kos'];
-    $jenis_kos = $_POST['jenis_kos'];
-    $tipe_kos = $_POST['tipe_kos'];
-    $deskripsi = $_POST['deskripsi'];
-    $nomor_whatsapp = $_POST['nomor_whatsapp'];
-    $alamat = $_POST['alamat'];
-    $provinsi = $_POST['provinsi'];
-    $kota = $_POST['kota'];
-    $kecamatan = $_POST['kecamatan'];
-    $latitude = $_POST['latitude'];
-    $longitude = $_POST['longitude'];
+    $universitas = $conn->real_escape_string($_POST['universitas']);
+    $nama_kos = $conn->real_escape_string($_POST['nama_kos']);
+    $jenis_kos = $conn->real_escape_string($_POST['jenis_kos']);
+    $tipe_kos = $conn->real_escape_string($_POST['tipe_kos']);
+    $deskripsi = $conn->real_escape_string($_POST['deskripsi']);
+    $nomor_whatsapp = $conn->real_escape_string($_POST['nomor_whatsapp']);
+    $alamat = $conn->real_escape_string($_POST['alamat']);
+    $provinsi = $conn->real_escape_string($_POST['provinsi']);
+    $kota = $conn->real_escape_string($_POST['kota']);
+    $kecamatan = $conn->real_escape_string($_POST['kecamatan']);
+    $latitude = $conn->real_escape_string($_POST['latitude']);
+    $longitude = $conn->real_escape_string($_POST['longitude']);
 
     // Upload foto jika ada
-    if ($_FILES['foto']['name']) {
-        $foto = $_FILES['foto']['name'];
-        $target_dir = "uploads/";
-        $target_file = $target_dir . basename($foto);
-        move_uploaded_file($_FILES['foto']['tmp_name'], $target_file);
-        $sql = "UPDATE unimal SET universitas='$universitas', nama_kos='$nama_kos', jenis_kos='$jenis_kos', tipe_kos='$tipe_kos', deskripsi='$deskripsi', nomor_whatsapp='$nomor_whatsapp', alamat='$alamat', provinsi='$provinsi', kota='$kota', kecamatan='$kecamatan', latitude='$latitude', longitude='$longitude', foto='$target_file' WHERE id=$id";
-    } else {
-        $sql = "UPDATE unimal SET universitas='$universitas', nama_kos='$nama_kos', jenis_kos='$jenis_kos', tipe_kos='$tipe_kos', deskripsi='$deskripsi', nomor_whatsapp='$nomor_whatsapp', alamat='$alamat', provinsi='$provinsi', kota='$kota', kecamatan='$kecamatan', latitude='$latitude', longitude='$longitude' WHERE id=$id";
+    $foto_uploaded = false;
+    if (!empty($_FILES['foto']['name'])) {
+        $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+        $file_extension = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
+
+        if (in_array($file_extension, $allowed_types)) {
+            $foto = uniqid() . '.' . $file_extension; // Buat nama file unik
+            $target_dir = "uploads/";
+            $target_file = $target_dir . $foto;
+
+            if (move_uploaded_file($_FILES['foto']['tmp_name'], $target_file)) {
+                $foto_uploaded = true;
+            }
+        } else {
+            echo "File format tidak valid.";
+            exit;
+        }
     }
 
-    if ($conn->query($sql) === TRUE) {
+    // Update query
+    if ($foto_uploaded) {
+        $sql = "UPDATE unimal SET universitas=?, nama_kos=?, jenis_kos=?, tipe_kos=?, deskripsi=?, nomor_whatsapp=?, alamat=?, provinsi=?, kota=?, kecamatan=?, latitude=?, longitude=?, foto=? WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sssssssssssisi", $universitas, $nama_kos, $jenis_kos, $tipe_kos, $deskripsi, $nomor_whatsapp, $alamat, $provinsi, $kota, $kecamatan, $latitude, $longitude, $target_file, $id);
+    } else {
+        $sql = "UPDATE unimal SET universitas=?, nama_kos=?, jenis_kos=?, tipe_kos=?, deskripsi=?, nomor_whatsapp=?, alamat=?, provinsi=?, kota=?, kecamatan=?, latitude=?, longitude=? WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssssssssssssi", $universitas, $nama_kos, $jenis_kos, $tipe_kos, $deskripsi, $nomor_whatsapp, $alamat, $provinsi, $kota, $kecamatan, $latitude, $longitude, $id);
+    }
+
+    // Eksekusi query
+    if ($stmt->execute()) {
         header("Location: index.php");
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $stmt->error;
     }
 }
 ?>

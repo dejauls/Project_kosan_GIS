@@ -5,7 +5,7 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>AWAK KOS</title>
-     <link href="./src/output.css" rel="stylesheet">
+     <link href="../src/output.css" rel="stylesheet">
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
      <style>
@@ -39,7 +39,7 @@
  <body>
     <section class="w-full">
         <nav class="w-full  flex justify-between ">
-            <img src="src/img/awakkoss.png" alt="awakkos" class="w-48">
+            <img src="../src/img/awakkoss.png" alt="awakkos" class="w-48">
                 <ul class="flex flex-row justify-items-start gap-6 items-center">
                                     <li href="javascript:void(0)" class="relative group">
                                         <a href="/" class="font-semibold text-base duration-500">
@@ -71,7 +71,7 @@
                                     </li>                    
                 </ul>
             <div>
-                <a href="login.php">
+                <a href="../login.php">
                 <button class="py-2 px-4 m-2 rounded-full border-2 font-semibold border-blue-300 bg-orange-500 hover:bg-orange-600 ">Masuk</button>
 
                 </a>
@@ -83,10 +83,10 @@
   
      <section class="relative hero w-full h-screen">
          
-         <div  class="overflow-hidden relative w-full px-8 rounded-xl h-96">
+         <div  class="overflow-hidden relative w-full px-8 rounded-xl h-[400px]">
              <div class="flex transition-transform duration-500 ease-in-out rounded-xl"  >
                  <div class="hero-slide w-full flex-shrink-0 rounded-xl">
-                     <img src="src/img/kos3.jpg" alt="Kamar 1" class="w-full h-96 object-cover rounded-xl">
+                     <img src="../src/img/kos3.jpg" alt="Kamar 1" class="w-full h-[400px] object-cover rounded-xl">
                  </div>
                   
              </div>
@@ -214,17 +214,17 @@
                             </h1>
                         </div>
                         <div class="rounded-xl w-3/4 h-full flex justify-end bg-gray-300 p-[1px]">
-                            <img class="w-full h-full object-cover rounded-xl " src="src/img/kamar1.png" alt="">
+                            <img class="w-full h-full object-cover rounded-xl " src="../src/img/kamar1.png" alt="">
                         </div>
                     </div>
                     
                 </div>
             </div>
 
-            <div class="bg-gray-200 overflow-hidden flex flex-row w-full h-36 rounded-xl shadow-lg border col-span-2">
-                <div class=" w-full flex flex-row gap-6 p-2 ">
-                    <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.2s">
-                        <img class="w-full object-cover rounded-xl " src="src/img/kos2.jpeg" alt="">
+            <div class="bg-gray-200 overflow-hidden flex flex-row w-full h-36 rounded-xl shadow-lg  border col-span-2">
+                <div class=" w-full grid grid-cols-3 gap-6 p-2 ">
+                    <div class="relative   wow animate__animated animate__fadeInUp " data-wow-delay="0.2s">
+                        <img class="w-full object-cover rounded-xl " src="../src/img/depanunimal.jpeg" alt="">
                         <a href="">
                             <div class="absolute top-0 flex items-center bg-white justify-center w-8 h-8 rounded-full right-0 m-2"> 
                             <svg fill="#000000" width="70px" height="70px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-f</title><path d="M256,48h0A208.23,208.23,0,0,0,48,256c0,114.68,93.31,208,208,208h0A208.23,208.23,0,0,0,464,256C464,141.31,370.69,48,256,48Zm-8,361V264H104l-1,0,259-114.11Z"></path></g></svg>    
@@ -233,7 +233,7 @@
                         <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-0">UNIMAL</p>
                     </div>
                     <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.5s">
-                        <img class="w-full object-cover rounded-xl" src="src/img/kos2.jpeg" alt="">
+                        <img class="w-full object-cover rounded-xl" src="../src/img/depanpolteklhok.png" alt="">
                         <a href="">
                             <div class="absolute top-0 flex items-center bg-white justify-center w-8 h-8 rounded-full right-0 m-2"> 
                             <svg fill="#000000" width="70px" height="70px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-f</title><path d="M256,48h0A208.23,208.23,0,0,0,48,256c0,114.68,93.31,208,208,208h0A208.23,208.23,0,0,0,464,256C464,141.31,370.69,48,256,48Zm-8,361V264H104l-1,0,259-114.11Z"></path></g></svg>    
@@ -242,7 +242,7 @@
                         <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-0">POLTEK</p>
                     </div>
                     <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.9s">
-                        <img class="w-full object-cover rounded-xl" src="src/img/kos2.jpeg" alt="">
+                        <img class="w-full object-cover rounded-xl" src="../src/img/depaniain.jpeg" alt="">
                         <a href="">
                             <div class="absolute top-0 flex items-center bg-white justify-center w-8 h-8 rounded-full right-0 m-2"> 
                             <svg fill="#000000" width="70px" height="70px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-f</title><path d="M256,48h0A208.23,208.23,0,0,0,48,256c0,114.68,93.31,208,208,208h0A208.23,208.23,0,0,0,464,256C464,141.31,370.69,48,256,48Zm-8,361V264H104l-1,0,259-114.11Z"></path></g></svg>    
@@ -339,154 +339,79 @@
                  </a href="" alt="univ" class="univkotak">
              </div>
          </div>
-
-
-
-         
      </section>
-     <section class="fotouniv">
-         <div class="pilihuniv">
-             <h2>Pilih Universitas Kamu :</h2>
-             <select class="custom-select">
-                 <option value="">Pilih Opsi</option>
-                 <option value="1">UNIMAL</option>
-                 <option value="2">POLTEK</option>
-                 <option value="3">UNSYIAH</option>
-             </select>
-         </div>
-         <div class="fotouniv5">
-             <div class="unive1">
-                 <img src="IMG/kamar1.png" alt="">
-                 <h2>
-                     Universitas Ternama
-                 </h2>
-             </div>
-             <div class="unive1">
-                 <img src="IMG/kamar1.png" alt="">
-                 <h2>
-                     Universitas Ternama
-                 </h2>
-             </div>
-             <div class="unive1">
-                 <img src="IMG/kamar1.png" alt="">
-                 <h2>
-                     Universitas Ternama
-                 </h2>
-             </div>
-             <div class="unive1">
-                 <img src="IMG/kamar1.png" alt="">
-                 <h2>
-                     Universitas Ternama
-                 </h2>
-             </div>
-             <div class="unive1">
-                 <img src="IMG/kamar1.png" alt="">
-                 <h2>
-                     Universitas Ternama
-                 </h2>
-             </div>
-
-         </div>
-         <div class="fotouniv5">
-             <div class="unive1">
-                 <img src="IMG/kamar1.png" alt="">
-                 <h2>
-                     Universitas Ternama
-                 </h2>
-             </div>
-             <div class="unive1">
-                 <img src="IMG/kamar1.png" alt="">
-                 <h2>
-                     Universitas Ternama
-                 </h2>
-             </div>
-             <div class="unive1">
-                 <img src="IMG/kamar1.png" alt="">
-                 <h2>
-                     Universitas Ternama
-                 </h2>
-             </div>
-             <div class="unive1">
-                 <img src="IMG/kamar1.png" alt="">
-                 <h2>
-                     Universitas Ternama
-                 </h2>
-             </div>
-             <div class="unive1">
-                 <img src="IMG/kamar1.png" alt="">
-                 <h2>
-                     Universitas Ternama
-                 </h2>
-             </div>
-
-         </div>
-
-     </section>
+      
 
 
-     <section id="pilih-universitas" class="fotouniv">
-         <div class="pilihuniv">
-             <h2>Pilih Universitas Kamu :</h2>
-             <select class="custom-select" id="university-select">
-                 <option value="">Pilih Opsi</option>
-                 <option value="Universitas Malikussaleh">UNIMAL</option>
-                 <option value="POLTEK">POLTEK</option>
-                 <option value="UNSYIAH">UNSYIAH</option>
-             </select>
-         </div>
+     <section id="pilih-universitas" class="p-4 w-ful mt-8">
+        <div class="mb-6 flex flex-col justify-center w-full items-center">
+        <h2 class="bg-gradient-to-tl from-orange-400 via-orange-700 to-orange-500 text-white text-2xl font-bold rounded-xl border border-fray-500 p-4 mb-4">
+            Pilih Universitas Kamu :
+        </h2>
 
-         <div class="fotouniv5" id="kosan-list">
-             <!-- Data kosan akan dimuat di sini -->
-         </div>
-     </section>
-     <script>
-         document.getElementById('university-select').addEventListener('change', function() {
-             const selectedUniversity = this.value; // Ambil nilai universitas yang dipilih
-             const kosanListContainer = document.getElementById('kosan-list');
 
-             // Jika tidak ada universitas yang dipilih, kosongkan data
-             if (!selectedUniversity) {
-                 kosanListContainer.innerHTML = '<p>Silakan pilih universitas terlebih dahulu.</p>';
-                 return;
-             }
+            <select class="w-48 p-2 border-2 rounded-md" id="university-select">
+                <option value="">Pilih Universitas</option>
+                <option value="Universitas Malikussaleh">UNIMAL</option>
+                <option value="POLTEK">POLTEK</option>
+                <option value="UNSYIAH">UNSYIAH</option>
+            </select>
+        </div>
 
-             // Kirim permintaan AJAX ke server
-             fetch('get_kosan_data.php', {
-                     method: 'POST',
-                     headers: {
-                         'Content-Type': 'application/x-www-form-urlencoded',
-                     },
-                     body: `university=${encodeURIComponent(selectedUniversity)}`,
-                 })
-                 .then((response) => response.json()) // Parsing respons JSON
-                 .then((data) => {
-                     // Kosongkan kontainer data
-                     kosanListContainer.innerHTML = '';
+        <div id="kosan-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
 
-                     // Tampilkan data kosan
-                     if (data.length > 0) {
-                         data.forEach((kosan) => {
-                             kosanListContainer.innerHTML += `
-            <div class="unive1">
-              <img src="${kosan.gambar_url}" alt="${kosan.nama_kos}">
-              <h2>${kosan.nama_kos}</h2>
-              <p>${kosan.deskripsi}</p>
-              <p><strong>Harga:</strong> Rp${new Intl.NumberFormat('id-ID').format(kosan.harga)}</p>
-              <p><strong>Alamat:</strong> ${kosan.alamat}</p>
-              <p><strong>Telepon:</strong> ${kosan.no_telepon}</p>
-            </div>
-          `;
-                         });
-                     } else {
-                         kosanListContainer.innerHTML = '<p>Tidak ada data kosan untuk universitas yang dipilih.</p>';
-                     }
-                 })
-                 .catch((error) => {
-                     console.error('Error:', error);
-                     kosanListContainer.innerHTML = '<p>Terjadi kesalahan saat memuat data kosan.</p>';
-                 });
-         });
-     </script>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('university-select').addEventListener('change', function () {
+            const selectedUniversity = this.value;
+            const kosanListContainer = document.getElementById('kosan-list');
+
+            if (!selectedUniversity) {
+                kosanListContainer.innerHTML = '<p class="col-span-full text-center text-gray-500">Silakan pilih universitas terlebih dahulu.</p>';
+                return;
+            }
+
+            fetch('../get_kosan_data.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `university=${encodeURIComponent(selectedUniversity)}`,
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    kosanListContainer.innerHTML = '';
+
+                    if (data.length > 0) {
+                        data.forEach((kosan) => {
+                            kosanListContainer.innerHTML += `
+                                <a href="detail_kos.php?id=${kosan.id}" 
+                                class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                                    <img src="${kosan.gambar_url}" alt="${kosan.nama_kos}" class="w-full h-40 object-cover">
+                                    <div class="p-4">
+                                        <h3 class="text-lg font-semibold mb-2">${kosan.nama_kos}</h3>
+                                        <p class="text-sm text-gray-500">${kosan.deskripsi}</p>
+                                        <p class="mt-2 text-sm"><strong>Harga:</strong> Rp${new Intl.NumberFormat('id-ID').format(kosan.harga)}</p>
+                                        <p class="text-sm"><strong>Alamat:</strong> ${kosan.alamat}</p>
+                                        <p class="text-sm"><strong>Telepon:</strong> ${kosan.no_telepon}</p>
+                                    </div>
+                                </a>
+                            `;
+                        });
+
+                    } else {
+                        kosanListContainer.innerHTML = '<p class="col-span-full text-center text-gray-500">Tidak ada data kosan untuk universitas yang dipilih.</p>';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    kosanListContainer.innerHTML = '<p class="col-span-full text-center text-red-500">Terjadi kesalahan saat memuat data kosan.</p>';
+                });
+        });
+    </script>
+
      <!-- Footer -->
      <footer class="bg-orange-700 text-white pt-12">
          <div class="container mx-auto px-4 md:px-8">
