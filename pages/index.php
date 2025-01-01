@@ -34,10 +34,12 @@
 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
      <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
  </head>
 
  <body>
-    <section class="w-full">
+    <section class="w-full font-montserrat">
         <nav class="w-full  flex justify-between ">
             <img src="../src/img/awakkoss.png" alt="awakkos" class="w-48">
                 <ul class="flex flex-row justify-items-start gap-6 items-center">
@@ -49,7 +51,7 @@
                                         </div>
                                     </li>
                                     <li href="javascript:void(0)" class="relative group">
-                                        <a href="/" class="font-semibold  text-base duration-500">
+                                        <a href="semua_kos.php" class="font-semibold  text-base duration-500">
                                             CARI KOS
                                         </a>
                                         <div class="absolute   left-0 w-0 duration-500 group-hover:w-full h-1 bg-orange-500">
@@ -114,7 +116,6 @@
 
         <div id="filterBox" 
             class="hidden absolute bottom-60 right-16 p-4 bg-slate-100 rounded-lg shadow-lg w-80 wow animate__animated">
-
             <div class="absolute top-0 flex items-center bg-black justify-center w-6 h-6 rounded-full right-0 m-2 hover:cursor-pointer" id="closeButton"> 
                 <p class="text-white hover:cursor-pointer">X</p>
             </div>
@@ -123,10 +124,11 @@
 
             <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-1">Lokasi Kampus</label>
-                <select 
+                <select id="lokasiKampus" 
                     class="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
-                    <option value="unimal">Universitas Malikussaleh</option>
-                    <option value="poltek">Politeknik Negeri Lhokseumawe</option>
+                    <option value="">Pilih Kampus</option>
+                    <option value="UNIVERSITAS MALIKUSSALEH">Universitas Malikussaleh</option>
+                    <option value="POLTEK">Politeknik Negeri Lhokseumawe</option>
                     <option value="iain">IAIN</option>
                     <option value="stikes">STIKES</option>
                 </select>
@@ -134,33 +136,35 @@
 
             <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-1">Harga Maksimum/bulan</label>
-                <select 
+                <select id="hargaMaksimum"
                     class="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
-                    <option value="500000">500.000</option>
-                    <option value="1000000">1.000.000</option>
-                    <option value="1500000">1.500.000</option>
-                    <option value="2000000">2.000.000</option>
+                    <option value="">Pilih Harga</option>
+                    <option value="500000">500000</option>
+                    <option value="1000000">1000000</option>
+                    <option value="1500000">1500000</option>
+                    <option value="2000000">2000000</option>
                 </select>
             </div>
 
             <div class="mb-4 flex space-x-2">
                 <div class="flex items-center">
-                    <input type="checkbox" id="wifi" 
+                    <input type="checkbox" id="wifi" value="wifi"
                         class="w-4 h-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded"/>
                     <label for="wifi" class="ml-2 text-sm text-gray-700">Wi-Fi</label>
                 </div>
                 <div class="flex items-center">
-                    <input type="checkbox" id="kamar-mandi" 
+                    <input type="checkbox" id="ac" value="ac"
                         class="w-4 h-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded"/>
-                    <label for="kamar-mandi" class="ml-2 text-sm text-gray-700">Kamar Mandi Dalam</label>
+                    <label for="ac" class="ml-2 text-sm text-gray-700">AC</label>
                 </div>
             </div>
 
-            <button 
+            <button id="cariKosButton"
                 class="w-full bg-orange-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-orange-600 transition duration-300">
                 Cari Kos
             </button>
         </div>
+
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const toggleButton = document.getElementById("toggleButton");
@@ -186,7 +190,28 @@
                 });
             });
         </script>
+        <script>
+            document.getElementById('cariKosButton').addEventListener('click', () => {
+            // Ambil nilai filter
+            const lokasiKampus = document.getElementById('lokasiKampus').value;
+            const hargaMaksimum = document.getElementById('hargaMaksimum').value;
 
+            const fasilitas = [];
+            if (document.getElementById('wifi').checked) fasilitas.push('wifi');
+            if (document.getElementById('ac').checked) fasilitas.push('ac');
+
+            // Buat query string berdasarkan filter
+            const queryString = new URLSearchParams({
+                universitas: lokasiKampus || '',
+                harga: hargaMaksimum || '',
+                fasilitas: fasilitas.join(','),
+            }).toString();
+
+            // Pindah ke halaman target dengan query string
+            window.location.href = `kosan.php?${queryString}`;
+        });
+
+        </script>
 
 
         <div class="w-full py-2 px-8 grid grid-cols-3 gap-8 ">
@@ -223,7 +248,7 @@
 
             <div class="bg-gray-200 overflow-hidden flex flex-row w-full h-36 rounded-xl shadow-lg  border col-span-2">
                 <div class=" w-full grid grid-cols-3 gap-6 p-2 ">
-                    <div class="relative   wow animate__animated animate__fadeInUp " data-wow-delay="0.2s">
+                    <div class="relative   wow animate__animated animate__fadeInUp " data-wow-delay="0.2s" onclick="window.location.href='kosan.php?universitas=UNIVERSITAS MALIKUSSALEH'">
                         <img class="w-full object-cover rounded-xl " src="../src/img/depanunimal.jpeg" alt="">
                         <a href="">
                             <div class="absolute top-0 flex items-center bg-white justify-center w-8 h-8 rounded-full right-0 m-2"> 
@@ -232,7 +257,7 @@
                         </a>
                         <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-0">UNIMAL</p>
                     </div>
-                    <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.5s">
+                    <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.5s" onclick="window.location.href='kosan.php?universitas=POLTEK'">
                         <img class="w-full object-cover rounded-xl" src="../src/img/depanpolteklhok.png" alt="">
                         <a href="">
                             <div class="absolute top-0 flex items-center bg-white justify-center w-8 h-8 rounded-full right-0 m-2"> 
@@ -241,7 +266,7 @@
                         </a>
                         <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-0">POLTEK</p>
                     </div>
-                    <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.9s">
+                    <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.9s" onclick="window.location.href='kosan.php?universitas=IAIN'">
                         <img class="w-full object-cover rounded-xl" src="../src/img/depaniain.jpeg" alt="">
                         <a href="">
                             <div class="absolute top-0 flex items-center bg-white justify-center w-8 h-8 rounded-full right-0 m-2"> 
@@ -265,79 +290,78 @@
      <section class="w-full">
          <h2 class="text-center text-2xl font-bold mt-8">Cari Kos di Sekitar Kampus</h2>
          <div class="grid grid-cols-4 py-4 gap-4 items-center justify-center px-20 space-y-8 ">
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 mt-8 cursor-pointer">
-                 <img class="" src="https://pendaftaran.unimal.ac.id/assets/unimal.png" alt="unimal">
-                 <a class="pt-2">
-                     <span class="text-center">UNIVERSITAS MALIKUSSALEH</span>
-                 </a>
-             </div>
-
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Logo_Politeknik_Negeri_Lhokseumawe.png" alt="poltek">
-                 <a class="pt-2" href="" alt="univ" class="univkotak">
-                     <span>POLTEK LHOKSEUMAWE</span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="https://akupintar.id/documents/20143/0/STIE+LHOK.jpg/8786c752-0a02-64e5-ecb2-4e1e82c57eb2?version=1.0&t=1518877648647&imageThumbnail=1" alt="stie">
-                 <a class="pt-2" href="" alt="univ" class="univkotak">
-                     <span>STIE LHOKSEUMAWE</span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="https://stianasional.ac.id/wp-content/uploads/2017/08/logo-stia.png.webp" alt="stian">
-                 <a href="" alt="univ" class="univkotak">
-                     <span>STIAN LHOKSEUMAWE</span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa343647sQQhDyecxat6w6tLRZfeF79BIeCQ&s" alt="unbp">
-                 <a href="" alt="univ" class="univkotak">
-                     <span>UNIVERSITAS BUMI PERSADA</span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="https://assets.nsd.co.id/images/kampus/logo/ODBBQjQxMTgtQzBCMS00RUMzLTg4QkYtOTU1RUVDMEUzRTRF.png" alt="iain">
-                 <a href="" alt="univ" class="univkotak">
-                     <span>INSTITUT AGAMA ISLAM NEGERI LHOKSEUMAWE</span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Logo_Resmi_UNIKI.png" alt="uniki">
-                 <a href="" alt="univ" class="univkotak">
-                     <span>UNIVERSITAS ISLAM KEBANGSAAN INDONESIA</span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="https://sdl.ac.id/images/atribut/logosdl.png" alt="stikkes_darsa">
-                 <a href="" alt="univ" class="univkotak">
-                     <span>STIKKES DARUSSALAM LHOKSEUMAWE</span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTikCGCk_kYaPgs8dy2396ZeQ234NkFWBkxf_gWjvQcv_QRLxdMv2XjHUfDn9V21UQrwtM&usqp=CAU" alt="stikkes_muhammadiyah">
-                 <a href="" alt="univ" class="univkotak">
-                     <span>STIKKES MUHAMMADIYAH LHOKSEUMAWE</span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="https://stihalbanna.ac.id/wp-content/uploads/2024/04/cropped-logo-albanna-01-scaled-1.jpg" alt="albanna">
-                 <a href="" alt="univ" class="univkotak">
-                     <span>SEKOLAH TINGGI ILMU HUKUM AL-BANNA</span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="https://assets.nsd.co.id/images/kampus/logo/download20.png" alt="getsempana_lhoksukon">
-                 <a href="" alt="univ" class="univkotak">
-                     <span>STIKES GETSEMPANA LHOKSUKON</span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
-             <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
-                 <img src="IMG/staii.png" alt="stai">
-                 <a href="" alt="univ" class="univkotak">
-                     <span>STAI JAMIATUT TARBIYAH LHOKSUKON </span>
-                 </a href="" alt="univ" class="univkotak">
-             </div>
+            <a href="kosan.php?universitas=UNIVERSITAS MALIKUSSALEH">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 mt-8 cursor-pointer"  >
+                    <img class="" src="https://pendaftaran.unimal.ac.id/assets/unimal.png" alt="unimal">
+                        <p class="text-center pt-2">UNIVERSITAS MALIKUSSALEH</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=POLTEK">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Logo_Politeknik_Negeri_Lhokseumawe.png" alt="poltek">
+                        <p class="text-center pt-2">POLTEK LHOKSEUMAWE</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=STIE LHOKSEUMAWE">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer"  >
+                    <img src="https://akupintar.id/documents/20143/0/STIE+LHOK.jpg/8786c752-0a02-64e5-ecb2-4e1e82c57eb2?version=1.0&t=1518877648647&imageThumbnail=1" alt="stie">
+                        <p class="pt-2 text-center">STIE LHOKSEUMAWE</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=STIAN LHOKSEUMAWE">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer" onclick="window.location.href='kosan.php?universitas='">
+                    <img src="https://stianasional.ac.id/wp-content/uploads/2017/08/logo-stia.png.webp" alt="stian">
+                        <p class="pt-2 text-center">STIAN LHOKSEUMAWE</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=BUMI PERSADA">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer" onclick="window.location.href='kosan.php?universitas='">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa343647sQQhDyecxat6w6tLRZfeF79BIeCQ&s" alt="unbp">
+                        <p class="pt-2 text-center">UNIVERSITAS BUMI PERSADA</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=IAIN">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer" onclick="window.location.href='kosan.php?universitas='">
+                    <img src="https://assets.nsd.co.id/images/kampus/logo/ODBBQjQxMTgtQzBCMS00RUMzLTg4QkYtOTU1RUVDMEUzRTRF.png" alt="iain">
+                        <p class="pt-2 text-center">INSTITUT AGAMA ISLAM NEGERI LHOKSEUMAWE</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=UNIKI">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer" onclick="window.location.href='kosan.php?universitas='">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Logo_Resmi_UNIKI.png" alt="uniki">
+                        <p class="pt-2 text-center">UNIVERSITAS ISLAM KEBANGSAAN INDONESIA</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=STIKES DARUSSALAM">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer" onclick="window.location.href='kosan.php?universitas='">
+                    <img src="https://sdl.ac.id/images/atribut/logosdl.png" alt="stikkes_darsa">
+                        <p class="pt-2 text-center">STIKKES DARUSSALAM LHOKSEUMAWE</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=STIKKES MUHAMMADIYAH">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer" onclick="window.location.href='kosan.php?universitas='">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTikCGCk_kYaPgs8dy2396ZeQ234NkFWBkxf_gWjvQcv_QRLxdMv2XjHUfDn9V21UQrwtM&usqp=CAU" alt="stikkes_muhammadiyah">
+                        <p class="pt-2 text-center">STIKKES MUHAMMADIYAH LHOKSEUMAWE</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=ALBANNA">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer" onclick="window.location.href='kosan.php?universitas='">
+                    <img src="https://stihalbanna.ac.id/wp-content/uploads/2024/04/cropped-logo-albanna-01-scaled-1.jpg" alt="albanna">
+                        <p class="pt-2 text-center">SEKOLAH TINGGI ILMU HUKUM AL-BANNA</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=GETSEMPANA LHOKSUKON">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer" onclick="window.location.href='kosan.php?universitas='">
+                    <img src="https://assets.nsd.co.id/images/kampus/logo/download20.png" alt="getsempana_lhoksukon">
+                        <p class="pt-2 text-center">STIKES GETSEMPANA LHOKSUKON</p>
+                </div>
+            </a>
+            <a href="kosan.php?universitas=STAI">
+                <div class=" h-20 flex flex-row justify-center gap-4 bg-gray-200 shadow-xl py-2 pl-8 cursor-pointer" onclick="window.location.href='kosan.php?universitas='">
+                    <img src="IMG/staii.png" alt="stai">
+                        <p class="pt-2 text-center">STAI JAMIATUT TARBIYAH LHOKSUKON </p>
+                </div>
+            </a>
          </div>
      </section>
       

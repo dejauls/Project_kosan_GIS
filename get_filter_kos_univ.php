@@ -49,6 +49,7 @@ if (!empty($fasilitas)) {
     }
 }
 
+
 // Tambahkan urutan jarak jika parameter 'order' disediakan
 if (!empty($order) && in_array(strtolower($order), ['asc', 'desc'])) {
     $query .= " ORDER BY jarak " . strtoupper($order);
