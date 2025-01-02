@@ -46,11 +46,14 @@ $result = $conn->query($sql);
                     <th class="border border-gray-300 p-2">Jenis Kos</th>
                     <th class="border border-gray-300 p-2">Tipe Kos</th>
                     <th class="border border-gray-300 p-2">Deskripsi</th>
+                    <th class="border border-gray-300 p-2">Harga</th>
+                    <th class="border border-gray-300 p-2">Fasilitas</th>
                     <th class="border border-gray-300 p-2">Nomor WhatsApp</th>
                     <th class="border border-gray-300 p-2">Alamat</th>
                     <th class="border border-gray-300 p-2">Provinsi</th>
                     <th class="border border-gray-300 p-2">Kota</th>
                     <th class="border border-gray-300 p-2">Kecamatan</th>
+                    <th class="border border-gray-300 p-2">Jarak</th>
                     <th class="border border-gray-300 p-2">Latitude</th>
                     <th class="border border-gray-300 p-2">Longitude</th>
                     <th class="border border-gray-300 p-2">Foto</th>
@@ -66,14 +69,29 @@ $result = $conn->query($sql);
                         <td class="border border-gray-300 p-2"><?php echo $row['jenis_kos']; ?></td>
                         <td class="border border-gray-300 p-2"><?php echo $row['durasi_sewa']; ?></td>
                         <td class="border border-gray-300 p-2"><?php echo $row['deskripsi']; ?></td>
+                        <td class="border border-gray-300 p-2"><?php echo $row['harga']; ?></td>
+                        <td class="border border-gray-300 p-2"><?php echo $row['fasilitas']; ?></td>
                         <td class="border border-gray-300 p-2"><?php echo $row['no_telepon']; ?></td>
                         <td class="border border-gray-300 p-2"><?php echo $row['alamat']; ?></td>
                         <td class="border border-gray-300 p-2"><?php echo $row['provinsi']; ?></td>
                         <td class="border border-gray-300 p-2"><?php echo $row['kota']; ?></td>
                         <td class="border border-gray-300 p-2"><?php echo $row['kecamatan']; ?></td>
+                        <td class="border border-gray-300 p-2"><?php echo $row['jarak']; ?></td>
                         <td class="border border-gray-300 p-2"><?php echo $row['latitude']; ?></td>
                         <td class="border border-gray-300 p-2"><?php echo $row['longitude']; ?></td>
                         <td class="border border-gray-300 p-2"><img src="<?php echo $row['gambar_url']; ?>" width="200"></td>
+                        <td class="border border-gray-300 p-2">
+                            <?php
+                            // Pecah string berdasarkan koma
+                            $paths = explode(',', $row['gambar_tambahan']);
+
+                            // Loop melalui setiap path dan tampilkan gambar
+                            foreach ($paths as $path) {
+                                echo '<img src="' . htmlspecialchars($path) . '" width="80" style="margin-bottom: 5px;">';
+                            }
+                            ?>
+                        </td>
+
                         <td class=" p-2 flex flex-col space-y-2 border-t border-gray-300">
                             <a class="text-blue-700 font-semibold   " href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
                             <a class="text-blue-700 font-semibold  "href="delete.php ?id=<?php echo $row['id']; ?>">Delete</a>
