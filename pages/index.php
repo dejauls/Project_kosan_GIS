@@ -255,7 +255,7 @@
                             <svg fill="#000000" width="70px" height="70px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-f</title><path d="M256,48h0A208.23,208.23,0,0,0,48,256c0,114.68,93.31,208,208,208h0A208.23,208.23,0,0,0,464,256C464,141.31,370.69,48,256,48Zm-8,361V264H104l-1,0,259-114.11Z"></path></g></svg>    
                         </div>
                         </a>
-                        <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-0">UNIMAL</p>
+                        <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-10 z-999 ">UNIMAL</p>
                     </div>
                     <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.5s" onclick="window.location.href='kosan.php?universitas=POLTEK'">
                         <img class="w-full object-cover rounded-xl" src="../src/img/depanpolteklhok.png" alt="">
@@ -264,7 +264,7 @@
                             <svg fill="#000000" width="70px" height="70px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-f</title><path d="M256,48h0A208.23,208.23,0,0,0,48,256c0,114.68,93.31,208,208,208h0A208.23,208.23,0,0,0,464,256C464,141.31,370.69,48,256,48Zm-8,361V264H104l-1,0,259-114.11Z"></path></g></svg>    
                         </div>
                         </a>
-                        <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-0">POLTEK</p>
+                        <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-10">POLTEK</p>
                     </div>
                     <div class="relative wow animate__animated animate__fadeInUp " data-wow-delay="0.9s" onclick="window.location.href='kosan.php?universitas=IAIN'">
                         <img class="w-full object-cover rounded-xl" src="../src/img/depaniain.jpeg" alt="">
@@ -273,7 +273,7 @@
                             <svg fill="#000000" width="70px" height="70px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>ionicons-v5-f</title><path d="M256,48h0A208.23,208.23,0,0,0,48,256c0,114.68,93.31,208,208,208h0A208.23,208.23,0,0,0,464,256C464,141.31,370.69,48,256,48Zm-8,361V264H104l-1,0,259-114.11Z"></path></g></svg>    
                         </div>
                         </a>
-                        <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-0">IAIN</p>
+                        <p class="absolute w-full text-white bg-black/80 text-center font-semibold text-lg bottom-10">IAIN</p>
                     </div>
                      
                 </div>
